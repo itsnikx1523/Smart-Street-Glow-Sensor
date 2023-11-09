@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class streetlight3 {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        //above 500 lux bulb will be off and lux is the intensity if the light
+        System.out.print("\nWhat is the external light intensity (in lux): ");
+        int externalLux = scanner.nextInt();
+
+        System.out.print("\nWhich object is coming ?");
+        System.out.print("\nENTER 1 FOR CAR \nENTER 2 FOR HUMAN \nENTER 3 FOR COW \nENTER 4 FOR CAT \nENTER 5 FOR BAT \nENTER 6 FOR WIND\n");
+
+        int motion_detector = scanner.nextInt();
+
+        System.out.print("\nWhether pole is bent ? ");
+        // input 0 for not bent and 1 for bend
+        int bent = scanner.nextInt();
+
+        System.out.print("\nWhether THE Bulb Has Any Defect ? ");
+        //input 0 for not defect and 1 for defect
+        int fuse = scanner.nextInt();
+
+
+        int targetLux = 500; // The desired lux level for the streetlight
+        int requiredIntensity;
+
+        if (externalLux < targetLux) {
+            requiredIntensity = targetLux - externalLux;
+            if(requiredIntensity>100){
+                if(motion_detector>3){
+                    System.out.println("\nThe StreetLight Will Glow With The Intensity of 100 lux");
+                }
+                else{
+                    requiredIntensity = targetLux - externalLux;
+                    System.out.println("\nThe StreetLight Will Glow With The Intensity of " + requiredIntensity + " lux.");
+                }
+
+            }
+            else{
+                System.out.println("\nThe Streetlight Will Glow With The Intensity of " + requiredIntensity + " lux.");
+            }
+
+        } else {
+            requiredIntensity = 0; // No additional intensity needed
+            System.out.println("\nThe StreetLight Will Glow With The Intensity of " + requiredIntensity + " lux.");
+        }
+
+        if(bent==0){
+            System.out.println("\nALL IS GOOD !");
+        }
+        else{
+            System.out.println("\nSENT THE MESSAGE TO DEPT. ---THE POLE IS BENT PROBABLY ACCIDENT HAS TAKEN PLACE  ");
+        }
+        if(fuse==1){
+            System.out.println("\nSENT NOTICE TO THE DEPT. -- BULB HAS ANY DEFECT PLEASE CHECK ");
+        }
+        else{
+            System.out.println();
+        }
+
+
+
+
+    }
+}
+// NOTE ---- All the inputs will be take by the sensor , as we have not sensor right now that's why we are taking inputs from the user.
